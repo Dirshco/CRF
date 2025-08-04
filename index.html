@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Research Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (e.g., hamburger menu) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom scroll behavior for smooth navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom gradient backgrounds for sections - NOW MORE VIBRANT AND DARKER! */
+        .gradient-bg-1 {
+            background: linear-gradient(to right top, #4a00e0, #8e2de2); /* Deep Blue to Vibrant Purple (Hero) */
+        }
+        .gradient-bg-2 {
+            background: linear-gradient(to right top, #f40076, #9100b4); /* Fuchsia to Deep Indigo (About) */
+        }
+        .gradient-bg-3 {
+            background: linear-gradient(to right top, #0f9b0f, #00796b); /* Dark Forest Green to Dark Teal (Mission - Darker Green) */
+        }
+        .gradient-bg-4 {
+            background: linear-gradient(to right top, #cc5500, #004d40); /* Burnt Orange to Dark Emerald (Vision - Darker Orange) */
+        }
+        .gradient-bg-5 {
+            background: linear-gradient(to right top, #385e0f, #7a5c00); /* Dark Olive Green to Dark Brown (Programs - Green to Brown) */
+        }
+        .gradient-bg-6 {
+            background: linear-gradient(to right top, #ff5f6d, #ffc371); /* Fiery Coral to Warm Peach (Fellowship) */
+        }
+        /* Custom button styling */
+        .btn-primary {
+            @apply bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300 ease-in-out;
+        }
+        .btn-secondary {
+            @apply bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-bold py-2 px-5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out;
+        }
+        /* Ensure content is readable on gradients */
+        section h2, section h3, section p, section li {
+            color: #ffffff; /* White text for readability on dark gradients */
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.4); /* Stronger text shadow for better contrast */
+        }
+        /* Adjust link color for readability */
+        section a {
+            color: #e0f2fe; /* Lighter blue for links */
+            text-decoration: underline;
+        }
+        /* Mobile navigation overlay */
+        .mobile-nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-nav-overlay.open {
+            transform: translateX(0);
+        }
+        .mobile-nav-overlay a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            text-decoration: none;
+        }
+        .mobile-nav-overlay .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md p-4 fixed w-full z-40">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-blue-700">CRF</a>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#about" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">About</a>
+                <a href="#mission" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">Mission</a>
+                <a href="#vision" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">Vision</a>
+                <a href="#programs" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">Programs</a>
+                <a href="#fellowship" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">Fellowship</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-700 font-medium transition duration-300">Contact</a>
+            </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay">
+        <button class="close-btn" id="close-mobile-menu"><i class="fas fa-times"></i></button>
+        <nav class="flex flex-col items-center">
+            <a href="#about" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">About</a>
+            <a href="#mission" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">Mission</a>
+            <a href="#vision" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">Vision</a>
+            <a href="#programs" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">Programs</a>
+            <a href="#fellowship" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">Fellowship</a>
+            <a href="#contact" class="text-white hover:text-blue-300 font-medium transition duration-300" onclick="closeMobileMenu()">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="gradient-bg-1 h-screen flex items-center justify-center text-center p-6 pt-20 md:pt-0">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-6 animate-fade-in-up">
+                Empowering the Future of Healthcare
+            </h1>
+            <p class="text-lg md:text-xl text-white mb-8 animate-fade-in-up delay-100">
+                The Combined Research Foundation: Pioneering innovative solutions for a healthier tomorrow.
+            </p>
+            <a href="#about" class="btn-primary animate-fade-in-up delay-200">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="gradient-bg-2 py-16 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">About the Combined Research Foundation</h2>
+            <p class="text-lg mb-6 leading-relaxed">
+                The **Combined Research Foundation (CRF) is a nonprofit organization based in Michigan dedicated to empowering the next generation of healthcare professionals. We are committed to addressing the evolving needs of a changing global population by focusing on key areas such as geriatrics, mental health, and complex patient care.
+            </p>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6">Our Story</h3>
+            <p class="text-lg mb-6 leading-relaxed">
+                The world is experiencing a significant demographic shift. As our population of older adults grows, so does the prevalence of chronic conditions and mental health disorders. This creates an increasing demand on healthcare systems and makes patient care more complex, especially for individuals managing multiple health issues.
+            </p>
+            <p class="text-lg mb-8 leading-relaxed">
+                At the Combined Research Foundation, we see this challenge as an opportunity. By investing in innovative programs and nurturing bright, compassionate minds, we can shape a new era of medical excellence. Our goal is to equip future healthcare leaders with the skills and knowledge needed to not only meet these challenges but to pioneer transformative solutions.
+            </p>
+            <p class="text-lg mb-8 leading-relaxed">
+                Join us on this journey to build a healthier tomorrow. Your passion and dedication, combined with our vision, can create a powerful synergy that propels healthcare forward.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="gradient-bg-3 py-16 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Our Mission</h2>
+            <p class="text-lg leading-relaxed">
+                Our mission is to empower the next generation of healthcare professionals in both clinical and research areas. We help them excel in the U.S. healthcare system by championing innovative approaches like telehealth, artificial intelligence and transformative care models.
+            </p>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="vision" class="gradient-bg-4 py-16 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Our Vision</h2>
+            <p class="text-lg leading-relaxed">
+                We envision a future where recent graduates are not just prepared for their careers but are also at the forefront of improving public health. We will achieve this by investing in innovative programs that address critical healthcare needs, particularly in geriatrics, mental health, and dental care.
+            </p>
+        </div>
+    </section>
+
+    <!-- Supported Programs Section -->
+    <section id="programs" class="gradient-bg-5 py-16 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Supported Programs</h2>
+            <p class="text-lg mb-8 leading-relaxed">
+                The Combined Research Foundation supports a number of key programs, including:
+            </p>
+            <ul class="space-y-4 text-left inline-block">
+                <li class="text-xl font-semibold">
+                    <a href="#fellowship" class="text-white hover:text-blue-300 transition duration-300">
+                        The Tele-Geriatric Research Fellowship Program
+                    </a>
+                </li>
+                <!-- Add more programs here if needed -->
+                <!-- <li class="text-xl font-semibold"> ### example
+                    <a href="#" class="text-white hover:text-blue-300 transition duration-300">
+                        [Program Name 2]
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Tele-Geriatric Research Fellowship Program Section -->
+    <section id="fellowship" class="gradient-bg-6 py-16 px-6">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">The Tele-Geriatric Research Fellowship Program</h2>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6">Pioneering the Future of Geriatric Care</h3>
+            <p class="text-lg mb-6 leading-relaxed">
+                The global population is aging rapidly, creating an urgent need for innovative solutions in geriatric healthcare. This unique fellowship is at the forefront of this change, training the next generation of healthcare professionals to address the complex challenges faced by older adults through the power of telehealth.
+            </p>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6">What is the Program?</h3>
+            <p class="text-lg mb-6 leading-relaxed">
+                This immersive, year-long experience blends advanced clinical training with cutting-edge research. Fellows will work alongside leading experts to:
+            </p>
+            <ul class="text-lg text-left list-disc list-inside space-y-2 mb-8 inline-block">
+                <li>Conduct impactful research on telehealth's role in improving health outcomes for older adults.</li>
+                <li>Develop expertise in managing complex geriatric conditions, including multimorbidity and mental health issues.</li>
+                <li>Innovate and implement new telehealth models that enhance patient access and quality of care.</li>
+                <li>Present their findings at national conferences and publish in peer-reviewed journals.</li>
+            </ul>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6">Who Should Apply?</h3>
+            <p class="text-lg mb-8 leading-relaxed">
+                We are seeking passionate and driven recent graduates from medical, dental, and allied health fields who are eager to make a significant impact. Ideal candidates have a strong interest in geriatrics, technology, and a commitment to research.
+            </p>
+            <h3 class="text-2xl md:text-3xl font-semibold mb-6">Join Us</h3>
+            <p class="text-lg mb-8 leading-relaxed">
+                The Tele-Geriatric Research Fellowship Program isn't just about training—it's about shaping a healthier, more connected future for our aging population. Your support, whether as an applicant, a donor, or a partner, is vital to this mission.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="https://geriatricfellowship.glideapp.io/" class="btn-primary">Apply Now</a></br>
+                <a href="https://combinedresearchfoundation.betterworld.org/donation-pages/default-permanent-donation-campaign" class="btn-secondary">Support This Program</a></br>
+                <img src="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/EPTtuVUqhhJ3Cn111Ank.svg" width="60" height=60">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="bg-gray-800 py-16 px-6 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">Contact Us</h2>
+            <p class="text-lg mb-4">
+                Have questions or want to get involved? We'd love to hear from you!
+            </p>
+            <p class="text-lg mb-8">
+                Phone: +1 (248) 716-3084‬
+                Fax: Fax: +1 (888) 225-7595
+                Email: <a href="mailto:nadir@telegeriatricresearchfellowship.us" class="text-blue-300 hover:underline">info@crfoundation.org</a>
+            </p>
+            <!-- You can add a contact form here if needed -->
+            <a href="mailto:nadir@telegeriatricresearchfellowship.us" class="btn-primary">Send us an Email</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 px-6 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Combined Research Foundation. All rights reserved.</p>
+            <p class="text-sm mt-2">
+                <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a> |
+                <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+
+        function openMobileMenu() {
+            mobileNavOverlay.classList.add('open');
+        }
+
+        function closeMobileMenu() {
+            mobileNavOverlay.classList.remove('open');
+        }
+
+        mobileMenuButton.addEventListener('click', openMobileMenu);
+        closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+    </script>
+</body>
+</html>
