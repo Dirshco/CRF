@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Safety in PALTC</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body, .presentation-wrapper {
+      height: 100%;
+      width: 100%;
+    }
+
+    .presentation-wrapper {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      overflow: auto;
+      padding: 0;
+    }
+
+    .presentation-container {
+      min-height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .slide-viewer {
+      width: 100%;
+      max-width: 1200px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .slide-content {
+      padding: 3rem 4rem;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-header {
+      border-bottom: 4px solid #e74c3c;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .slide-number-badge {
+      display: inline-block;
+      background: #e74c3c;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .slide-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #1a202c;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .title-slide .slide-title {
+      font-size: 3.5rem;
+      text-align: center;
+      color: #e74c3c;
+      margin: 2rem 0;
+    }
+
+    .title-slide .slide-content {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .title-slide .subtitle {
+      font-size: 1.8rem;
+      color: #4a5568;
+      margin-bottom: 1rem;
+    }
+
+    .title-slide .institution {
+      font-size: 1.2rem;
+      color: #718096;
+      margin-top: 2rem;
+    }
+
+    .title-slide .icon {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+    }
+
+    .slide-body {
+      flex: 1;
+      color: #2d3748;
+    }
+
+    .slide-body h3 {
+      font-size: 1.5rem;
+      color: #e74c3c;
+      margin: 1.5rem 0 1rem 0;
+      font-weight: 700;
+    }
+
+    .slide-body p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: #4a5568;
+    }
+
+    .slide-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .slide-body li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+      padding-left: 2rem;
+      position: relative;
+      color: #2d3748;
+    }
+
+    .slide-body li::before {
+      content: "▸";
+      position: absolute;
+      left: 0.5rem;
+      color: #e74c3c;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .highlight-box {
+      background: #fff5f5;
+      border-left: 5px solid #e74c3c;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 8px;
+    }
+
+    .highlight-box.blue {
+      background: #ebf8ff;
+      border-left-color: #3182ce;
+    }
+
+    .highlight-box.green {
+      background: #f0fff4;
+      border-left-color: #38a169;
+    }
+
+    .highlight-box.yellow {
+      background: #fffff0;
+      border-left-color: #d69e2e;
+    }
+
+    .protocol-step {
+      background: #f7fafc;
+      border: 2px solid #e74c3c;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .protocol-letter {
+      display: inline-block;
+      background: #e74c3c;
+      color: #ffffff;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 50%;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .case-scenario {
+      background: #edf2f7;
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 1rem 0;
+      border: 2px solid #cbd5e0;
+    }
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      background: #2d3748;
+      border-top: 3px solid #e74c3c;
+    }
+
+    .nav-button {
+      background: #e74c3c;
+      color: #ffffff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-button:hover:not(:disabled) {
+      background: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    }
+
+    .nav-button:disabled {
+      background: #cbd5e0;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .slide-counter {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: #2d3748;
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #e74c3c, #f39c12);
+      transition: width 0.3s ease;
+    }
+
+    @media (max-width: 768px) {
+      .presentation-container {
+        padding: 1rem;
+      }
+
+      .slide-content {
+        padding: 2rem 1.5rem;
+        min-height: 400px;
+      }
+
+      .slide-title {
+        font-size: 1.8rem;
+      }
+
+      .title-slide .slide-title {
+        font-size: 2.5rem;
+      }
+
+      .slide-body p,
+      .slide-body li {
+        font-size: 1rem;
+      }
+
+      .nav-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="presentation-wrapper">
+   <div class="presentation-container">
+    <div class="progress-bar">
+     <div class="progress-fill" id="progressBar"></div>
+    </div>
+    <div class="slide-viewer">
+     <div class="slide-content" id="slideContent"><!-- Slide content will be rendered here -->
+     </div>
+     <div class="navigation"><button class="nav-button" id="prevBtn" onclick="previousSlide()"> ← Previous </button>
+      <div class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">20</span>
+      </div><button class="nav-button" id="nextBtn" onclick="nextSlide()"> Next → </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      presentation_title: "Fire Safety in PALTC",
+      subtitle: "A Guide for International Medical Graduates",
+      institution_name: "Professional Medical Education"
+    };
+
+    let currentSlideIndex = 0;
+
+    const slidesData = [
+      {
+        number: 0,
+        title: "",
+        icon: "🔥",
+        isTitleSlide: true,
+        content: ""
+      },
+      {
+        number: 1,
+        title: "Learning Objectives",
+        icon: "🎯",
+        content: `
+          <p>By the end of this presentation, participants will be able to:</p>
+          <ul>
+            <li>Understand the critical importance of fire safety in skilled nursing facilities (SNFs)</li>
+            <li>Identify common fire hazards and sources in PALTC settings</li>
+            <li>Apply RACE and PASS protocols during fire emergencies</li>
+            <li>Recognize physician-specific responsibilities during fire events</li>
+            <li>Comply with CMS Life Safety Code and Emergency Preparedness requirements</li>
+            <li>Document fire-related incidents appropriately</li>
+            <li>Lead effective fire safety responses for special populations</li>
+          </ul>
+        `
+      },
+      {
+        number: 2,
+        title: "Why Fire Safety Matters in SNFs",
+        icon: "🏥",
+        content: `
+          <div class="highlight-box">
+            <p><strong>Vulnerable Population:</strong> SNF residents face unique risks due to limited mobility, cognitive impairments, and medical dependencies.</p>
+          </div>
+          <ul>
+            <li><strong>High-Risk Environment:</strong> Medical equipment, oxygen use, and electrical devices increase fire hazards</li>
+            <li><strong>Evacuation Challenges:</strong> Many residents require assistance or cannot self-evacuate</li>
+            <li><strong>Rapid Fire Spread:</strong> Facility layouts and materials can accelerate fire progression</li>
+            <li><strong>Legal Requirements:</strong> Federal and state regulations mandate strict fire safety compliance</li>
+            <li><strong>Historical Tragedies:</strong> Past SNF fires have resulted in multiple fatalities, emphasizing prevention importance</li>
+          </ul>
+          <div class="highlight-box yellow">
+            <p><strong>Key Fact:</strong> 15% of nursing home residents are unable to self-evacuate in emergencies.</p>
+          </div>
+        `
+      },
+      {
+        number: 3,
+        title: "Common Fire Sources",
+        icon: "🔥",
+        content: `
+          <h3>Most Frequent Causes in SNFs:</h3>
+          <ul>
+            <li><strong>Cooking Equipment:</strong> Kitchen fires, unattended stoves, grease fires</li>
+            <li><strong>Electrical Issues:</strong> Overloaded circuits, damaged cords, malfunctioning equipment</li>
+            <li><strong>Smoking Materials:</strong> Cigarettes, lighters, improper disposal</li>
+            <li><strong>Medical Oxygen:</strong> Ignition sources near oxygen equipment</li>
+            <li><strong>Heating Equipment:</strong> Space heaters, blankets, faulty HVAC systems</li>
+            <li><strong>Resident Actions:</strong> Unintentional ignition by confused residents</li>
+          </ul>
+          <div class="highlight-box">
+            <p><strong>Prevention Focus:</strong> Most SNF fires are preventable through proper protocols and staff vigilance.</p>
+          </div>
+        `
+      },
+      {
+        number: 4,
+        title: "IMG-Specific Knowledge Gaps",
+        icon: "📚",
+        content: `
+          <p>International Medical Graduates may face unique challenges in U.S. fire safety protocols:</p>
+          <ul>
+            <li><strong>Different Standards:</strong> U.S. fire safety codes may differ significantly from home country regulations</li>
+            <li><strong>Terminology Barriers:</strong> Specific acronyms (RACE, PASS) and technical terms may be unfamiliar</li>
+            <li><strong>Role Expectations:</strong> Physician involvement in emergency response may vary from previous experiences</li>
+            <li><strong>Legal Framework:</strong> CMS regulations and surveyor expectations are U.S.-specific</li>
+            <li><strong>Communication Protocols:</strong> Emergency communication styles may differ culturally</li>
+          </ul>
+          <div class="highlight-box blue">
+            <p><strong>Action Item:</strong> Familiarize yourself with facility-specific fire safety plans and participate in all drills.</p>
+          </div>
+        `
+      },
+      {
+        number: 5,
+        title: "CMS Life Safety Code",
+        icon: "📋",
+        content: `
+          <h3>NFPA 101: Life Safety Code (adopted by CMS)</h3>
+          <p>The Centers for Medicare & Medicaid Services (CMS) requires compliance with NFPA 101, which addresses:</p>
+          <ul>
+            <li><strong>Building Construction:</strong> Fire-resistant materials and compartmentalization</li>
+            <li><strong>Egress Requirements:</strong> Adequate exits, corridors, and evacuation routes</li>
+            <li><strong>Fire Detection Systems:</strong> Smoke detectors, fire alarms, and notification devices</li>
+            <li><strong>Suppression Systems:</strong> Sprinklers and fire extinguishers</li>
+            <li><strong>Staff Training:</strong> Mandatory fire safety education and drills</li>
+            <li><strong>Documentation:</strong> Maintenance records and incident reports</li>
+          </ul>
+          <div class="highlight-box yellow">
+            <p><strong>Compliance Requirement:</strong> All SNFs must conduct fire drills quarterly on each shift.</p>
+          </div>
+        `
+      },
+      {
+        number: 6,
+        title: "Emergency Preparedness Rule",
+        icon: "⚠️",
+        content: `
+          <h3>CMS Emergency Preparedness Final Rule (2016)</h3>
+          <p>Requires healthcare facilities to have comprehensive emergency plans including:</p>
+          <ul>
+            <li><strong>Emergency Plan:</strong> Written procedures for fire and all-hazards response</li>
+            <li><strong>Policies and Procedures:</strong> Specific protocols for evacuation, shelter-in-place, and communication</li>
+            <li><strong>Communication Plan:</strong> Methods to contact staff, residents, families, and authorities</li>
+            <li><strong>Training and Testing:</strong> Annual training and exercise requirements for all staff</li>
+          </ul>
+          <div class="highlight-box blue">
+            <p><strong>Physician Responsibility:</strong> Understand your role in the facility's emergency operations plan and maintain current contact information.</p>
+          </div>
+        `
+      },
+      {
+        number: 7,
+        title: "What Surveyors Expect",
+        icon: "👁️",
+        content: `
+          <h3>During Fire Safety Inspections, Surveyors Assess:</h3>
+          <ul>
+            <li><strong>Staff Knowledge:</strong> Can all staff members, including physicians, explain RACE and fire protocols?</li>
+            <li><strong>Drill Participation:</strong> Documentation showing all staff participate in fire drills</li>
+            <li><strong>Equipment Readiness:</strong> Functional alarms, extinguishers, and exits</li>
+            <li><strong>Response Times:</strong> Quick identification and response to fire scenarios</li>
+            <li><strong>Documentation:</strong> Complete records of training, drills, and maintenance</li>
+            <li><strong>Physical Environment:</strong> Clear corridors, working fire doors, proper storage</li>
+          </ul>
+          <div class="highlight-box">
+            <p><strong>Common Deficiency:</strong> Inadequate staff training or inability to demonstrate emergency procedures.</p>
+          </div>
+        `
+      },
+      {
+        number: 8,
+        title: "RACE Protocol",
+        icon: "🏃",
+        isSpecial: true,
+        content: `
+          <h3>Primary Fire Response Protocol for ALL Staff</h3>
+          <div class="protocol-step">
+            <span class="protocol-letter">R</span>
+            <strong>RESCUE</strong> – Remove residents in immediate danger first
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">A</span>
+            <strong>ALARM</strong> – Activate fire alarm and call emergency services
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">C</span>
+            <strong>CONFINE</strong> – Close doors and windows to contain fire and smoke
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">E</span>
+            <strong>EXTINGUISH/EVACUATE</strong> – Use extinguisher if safe; otherwise evacuate
+          </div>
+          <div class="highlight-box green">
+            <p><strong>Remember:</strong> RACE is performed in ORDER. Life safety comes before property protection.</p>
+          </div>
+        `
+      },
+      {
+        number: 9,
+        title: "RACE – Physician Actions",
+        icon: "⚕️",
+        isSpecial: true,
+        content: `
+          <h3>Physician-Specific Responsibilities During RACE:</h3>
+          <p><strong>R – RESCUE:</strong></p>
+          <ul>
+            <li>Assist with evacuating medically complex or immobile patients</li>
+            <li>Prioritize high-acuity residents (ventilators, oxygen-dependent)</li>
+            <li>Help move residents beyond fire doors to safe compartments</li>
+          </ul>
+          <p><strong>A – ALARM:</strong></p>
+          <ul>
+            <li>Ensure 911 and facility command center have been notified</li>
+            <li>Communicate patient medical needs to emergency responders</li>
+          </ul>
+          <p><strong>C – CONFINE:</strong></p>
+          <ul>
+            <li>Assist nursing staff in closing fire doors</li>
+            <li>Help maintain calm among residents during containment</li>
+          </ul>
+          <p><strong>E – EXTINGUISH/EVACUATE:</strong></p>
+          <ul>
+            <li>Support ongoing evacuation based on incident command directions</li>
+            <li>Provide medical assessment and triage in evacuation areas</li>
+          </ul>
+        `
+      },
+      {
+        number: 10,
+        title: "PASS Protocol",
+        icon: "🧯",
+        isSpecial: true,
+        content: `
+          <h3>Fire Extinguisher Use Protocol</h3>
+          <div class="protocol-step">
+            <span class="protocol-letter">P</span>
+            <strong>PULL</strong> – Pull the pin to break the tamper seal
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">A</span>
+            <strong>AIM</strong> – Aim low, pointing at the base of the fire
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">S</span>
+            <strong>SQUEEZE</strong> – Squeeze the handle to release the extinguishing agent
+          </div>
+          <div class="protocol-step">
+            <span class="protocol-letter">S</span>
+            <strong>SWEEP</strong> – Sweep from side to side at the base of the fire
+          </div>
+          <div class="highlight-box yellow">
+            <p><strong>Safety First:</strong> Only attempt to extinguish if the fire is small, contained, and you have a clear exit path.</p>
+          </div>
+        `
+      },
+      {
+        number: 11,
+        title: "When NOT to Use PASS",
+        icon: "🚫",
+        content: `
+          <h3>Do NOT Attempt to Fight a Fire When:</h3>
+          <ul>
+            <li><strong>Fire is Large or Spreading:</strong> Flames extend beyond a small contained area</li>
+            <li><strong>Smoke is Heavy:</strong> Visibility is reduced or smoke is thick</li>
+            <li><strong>Exit is Blocked:</strong> Fire is between you and the escape route</li>
+            <li><strong>Wrong Extinguisher Type:</strong> Class of fire doesn't match extinguisher</li>
+            <li><strong>You Feel Unsafe:</strong> Trust your instincts—evacuate instead</li>
+            <li><strong>Fire Involves Oxygen Equipment:</strong> Oxygen accelerates fires significantly</li>
+          </ul>
+          <div class="highlight-box">
+            <p><strong>Priority:</strong> Your safety and the safety of residents ALWAYS comes before property protection. When in doubt, evacuate.</p>
+          </div>
+        `
+      },
+      {
+        number: 12,
+        title: "Physician Leadership Role",
+        icon: "👨‍⚕️",
+        content: `
+          <h3>Beyond Direct Response: Leadership Expectations</h3>
+          <ul>
+            <li><strong>Pre-Event Preparation:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Participate in fire drills and training sessions</li>
+                <li>Review facility emergency plans regularly</li>
+                <li>Know which residents have special evacuation needs</li>
+              </ul>
+            </li>
+            <li><strong>During Events:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Provide medical direction to nursing staff</li>
+                <li>Assist with triage and prioritization decisions</li>
+                <li>Communicate with EMS about critical patients</li>
+              </ul>
+            </li>
+            <li><strong>Post-Event:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Assess residents for smoke inhalation or injuries</li>
+                <li>Document medical findings and interventions</li>
+                <li>Participate in debriefing and improvement planning</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        number: 13,
+        title: "Special Populations",
+        icon: "👴",
+        content: `
+          <h3>Considerations for High-Risk Residents:</h3>
+          <p><strong>Cognitively Impaired Residents:</strong></p>
+          <ul>
+            <li>May not understand danger or follow directions</li>
+            <li>Can become combative or resist evacuation</li>
+            <li>Require calm, repetitive simple instructions</li>
+          </ul>
+          <p><strong>Mobility-Limited Residents:</strong></p>
+          <ul>
+            <li>Need wheelchair, stretcher, or carry assistance</li>
+            <li>Prioritize horizontal evacuation to adjacent fire compartments</li>
+          </ul>
+          <p><strong>Oxygen-Dependent Residents:</strong></p>
+          <ul>
+            <li>Oxygen must be shut off in fire area (accelerates flames)</li>
+            <li>Arrange alternate oxygen supply in evacuation area</li>
+          </ul>
+          <p><strong>Ventilator-Dependent Residents:</strong></p>
+          <ul>
+            <li>Highest priority for evacuation assistance</li>
+            <li>Ensure Ambu bag availability during transport</li>
+          </ul>
+        `
+      },
+      {
+        number: 14,
+        title: "Case Scenario 1",
+        icon: "📖",
+        content: `
+          <div class="case-scenario">
+            <h3>Scenario:</h3>
+            <p>You are rounding at 2:00 PM when you smell smoke near the rehab wing. A CNA runs toward you saying there's a small fire in a resident's room from an electrical outlet.</p>
+            <h3>Questions:</h3>
+            <ul>
+              <li>What are your immediate actions using RACE?</li>
+              <li>Should you attempt to use a fire extinguisher?</li>
+              <li>What information do you need to communicate?</li>
+            </ul>
+          </div>
+          <div class="highlight-box green">
+            <h3>Correct Response:</h3>
+            <ul>
+              <li><strong>R:</strong> Ensure the resident is removed from the room immediately</li>
+              <li><strong>A:</strong> Pull fire alarm if not already activated; verify 911 called</li>
+              <li><strong>C:</strong> Close the room door to confine smoke</li>
+              <li><strong>E:</strong> If fire is small and outlet-based, facility staff may use extinguisher; otherwise prepare for evacuation</li>
+              <li>Communicate resident's medical status and mobility needs to responders</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        number: 15,
+        title: "Case Scenario 2",
+        icon: "📖",
+        content: `
+          <div class="case-scenario">
+            <h3>Scenario:</h3>
+            <p>During a fire drill, you are asked by a surveyor: "What is your role if a fire occurs?" The surveyor then asks: "How would you evacuate Mr. Johnson, who is on a ventilator?"</p>
+            <h3>Questions:</h3>
+            <ul>
+              <li>How do you demonstrate your knowledge of RACE?</li>
+              <li>What specific steps apply to ventilator-dependent residents?</li>
+            </ul>
+          </div>
+          <div class="highlight-box green">
+            <h3>Correct Response:</h3>
+            <ul>
+              <li>"I would immediately assist with rescuing residents in danger, activate the alarm system, help confine the fire by closing doors, and support evacuation or extinguishing efforts as directed."</li>
+              <li>"For Mr. Johnson, I would prioritize his evacuation, ensure respiratory therapy staff or trained nurses accompany him with an Ambu bag, and make sure his ventilator or portable oxygen is available in the safe area."</li>
+            </ul>
+          </div>
+        `
+      },
+      {
+        number: 16,
+        title: "Documentation Basics",
+        icon: "📝",
+        content: `
+          <h3>Required Documentation After Fire Events:</h3>
+          <ul>
+            <li><strong>Incident Report:</strong> Complete facility incident documentation within 24 hours</li>
+            <li><strong>Medical Assessments:</strong> Document examination findings for affected residents
+              <ul style="margin-top: 0.5rem;">
+                <li>Respiratory status and smoke exposure</li>
+                <li>Any injuries sustained during evacuation</li>
+                <li>Mental status changes</li>
+              </ul>
+            </li>
+            <li><strong>Orders and Interventions:</strong> Document any treatments, medications, or changes in care</li>
+            <li><strong>Communication:</strong> Note family notifications and discussions</li>
+            <li><strong>Follow-up Plan:</strong> Ongoing monitoring requirements</li>
+          </ul>
+          <div class="highlight-box yellow">
+            <p><strong>Legal Note:</strong> Documentation serves as legal record and is reviewable by surveyors, families, and legal entities.</p>
+          </div>
+        `
+      },
+      {
+        number: 17,
+        title: "Post-Event Responsibilities",
+        icon: "✅",
+        content: `
+          <h3>Physician Actions After Fire Events:</h3>
+          <ul>
+            <li><strong>Immediate Medical Care:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Assess all residents exposed to smoke for respiratory distress</li>
+                <li>Evaluate residents for trauma from evacuation</li>
+                <li>Order appropriate diagnostic tests (pulse ox, chest X-ray if indicated)</li>
+              </ul>
+            </li>
+            <li><strong>Documentation:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Complete thorough medical documentation for all affected residents</li>
+                <li>Provide input to facility incident report</li>
+              </ul>
+            </li>
+            <li><strong>Debriefing:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Participate in post-event analysis meetings</li>
+                <li>Identify opportunities for improvement</li>
+                <li>Provide feedback on medical response effectiveness</li>
+              </ul>
+            </li>
+            <li><strong>Follow-Up:</strong>
+              <ul style="margin-top: 0.5rem;">
+                <li>Monitor affected residents over subsequent days</li>
+                <li>Address delayed respiratory or psychological effects</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        number: 18,
+        title: "Knowledge Check",
+        icon: "❓",
+        content: `
+          <h3>Test Your Understanding:</h3>
+          <div class="case-scenario">
+            <p><strong>1. What does RACE stand for?</strong></p>
+            <p style="margin-left: 1rem; color: #38a169; margin-top: 0.5rem;">Answer: Rescue, Alarm, Confine, Extinguish/Evacuate</p>
+          </div>
+          <div class="case-scenario">
+            <p><strong>2. When should you NOT use a fire extinguisher?</strong></p>
+            <p style="margin-left: 1rem; color: #38a169; margin-top: 0.5rem;">Answer: When fire is large, spreading rapidly, exit blocked, heavy smoke, or you feel unsafe</p>
+          </div>
+          <div class="case-scenario">
+            <p><strong>3. Which residents should be prioritized during evacuation?</strong></p>
+            <p style="margin-left: 1rem; color: #38a169; margin-top: 0.5rem;">Answer: Those in immediate danger, followed by mobility-limited, ventilator-dependent, and oxygen-dependent residents</p>
+          </div>
+          <div class="case-scenario">
+            <p><strong>4. How often must SNFs conduct fire drills?</strong></p>
+            <p style="margin-left: 1rem; color: #38a169; margin-top: 0.5rem;">Answer: Quarterly on each shift</p>
+          </div>
+        `
+      },
+      {
+        number: 19,
+        title: "Key Takeaways",
+        icon: "💡",
+        content: `
+          <div class="highlight-box">
+            <h3>Critical Points to Remember:</h3>
+            <ul>
+              <li><strong>RACE is Universal:</strong> All staff, including physicians, must know and execute RACE protocol</li>
+              <li><strong>Life Over Property:</strong> Resident safety always takes priority over fighting fires</li>
+              <li><strong>Physicians Have Specific Roles:</strong> Medical assessment, triage, and documentation are key physician responsibilities</li>
+              <li><strong>Participate in Drills:</strong> Your involvement demonstrates compliance and prepares you for real events</li>
+              <li><strong>Special Populations Need Priority:</strong> Know which residents require immediate evacuation assistance</li>
+              <li><strong>Documentation Matters:</strong> Thorough medical documentation is legally and clinically essential</li>
+              <li><strong>Continuous Learning:</strong> Stay updated on facility protocols and CMS requirements</li>
+            </ul>
+          </div>
+          <div class="highlight-box blue" style="margin-top: 1.5rem; text-align: center;">
+            <p style="font-size: 1.3rem;"><strong>Remember: Preparedness Saves Lives</strong></p>
+          </div>
+        `
+      }
+    ];
+
+    function renderSlide(index) {
+      const slide = slidesData[index];
+      const slideContent = document.getElementById('slideContent');
+      
+      if (slide.isTitleSlide) {
+        const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+        slideContent.className = 'slide-content title-slide';
+        slideContent.innerHTML = `
+          <div class="icon">${slide.icon}</div>
+          <h1 class="slide-title" id="mainTitle">${config.presentation_title || defaultConfig.presentation_title}</h1>
+          <p class="subtitle" id="mainSubtitle">${config.subtitle || defaultConfig.subtitle}</p>
+          <p class="institution" id="institutionName">${config.institution_name || defaultConfig.institution_name}</p>
+        `;
+      } else {
+        slideContent.className = 'slide-content';
+        slideContent.innerHTML = `
+          <div class="slide-header">
+            <div class="slide-number-badge">Slide ${slide.number} of 19</div>
+            <h2 class="slide-title">${slide.icon} ${slide.title}</h2>
+          </div>
+          <div class="slide-body">
+            ${slide.content}
+          </div>
+        `;
+      }
+      
+      updateNavigation();
+      updateProgress();
+    }
+
+    function updateNavigation() {
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const currentSlideSpan = document.getElementById('currentSlide');
+      const totalSlidesSpan = document.getElementById('totalSlides');
+      
+      currentSlideSpan.textContent = currentSlideIndex + 1;
+      totalSlidesSpan.textContent = slidesData.length;
+      
+      prevBtn.disabled = currentSlideIndex === 0;
+      nextBtn.disabled = currentSlideIndex === slidesData.length - 1;
+    }
+
+    function updateProgress() {
+      const progressBar = document.getElementById('progressBar');
+      const progress = ((currentSlideIndex + 1) / slidesData.length) * 100;
+      progressBar.style.width = progress + '%';
+    }
+
+    function nextSlide() {
+      if (currentSlideIndex < slidesData.length - 1) {
+        currentSlideIndex++;
+        renderSlide(currentSlideIndex);
+      }
+    }
+
+    function previousSlide() {
+      if (currentSlideIndex > 0) {
+        currentSlideIndex--;
+        renderSlide(currentSlideIndex);
+      }
+    }
+
+    async function onConfigChange(config) {
+      // Update title slide if currently viewing it
+      if (currentSlideIndex === 0) {
+        const titleElement = document.getElementById('mainTitle');
+        const subtitleElement = document.getElementById('mainSubtitle');
+        const institutionElement = document.getElementById('institutionName');
+        
+        if (titleElement) titleElement.textContent = config.presentation_title || defaultConfig.presentation_title;
+        if (subtitleElement) subtitleElement.textContent = config.subtitle || defaultConfig.subtitle;
+        if (institutionElement) institutionElement.textContent = config.institution_name || defaultConfig.institution_name;
+      }
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || '#1a1a2e',
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.slide_background || '#ffffff',
+            set: (value) => {
+              config.slide_background = value;
+              window.elementSdk.setConfig({ slide_background: value });
+            }
+          },
+          {
+            get: () => config.text_color || '#2d3748',
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || '#e74c3c',
+            set: (value) => {
+              config.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.button_color || '#e74c3c',
+            set: (value) => {
+              config.button_color = value;
+              window.elementSdk.setConfig({ button_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || 'Inter',
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || 16,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["presentation_title", config.presentation_title || defaultConfig.presentation_title],
+        ["subtitle", config.subtitle || defaultConfig.subtitle],
+        ["institution_name", config.institution_name || defaultConfig.institution_name]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Initialize first slide
+    renderSlide(currentSlideIndex);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') previousSlide();
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b418c053766e0b5',t:'MTc2Njc2MjI2Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
