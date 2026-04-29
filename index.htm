@@ -1,0 +1,328 @@
+
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Combined Research Foundation - TGRF</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
+    
+    :root {
+      --color-primary: #1e3a5f;
+      --color-secondary: #2c5f8d;
+      --color-accent: #4a90b8;
+      --color-light: #f8fafc;
+      --color-text: #1e293b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+    }
+    
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .section-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-primary {
+      background: var(--color-accent);
+      color: white;
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--color-accent);
+    }
+    
+    .btn-primary:hover {
+      background: var(--color-secondary);
+      border-color: var(--color-secondary);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-accent);
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: 2px solid var(--color-accent);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--color-accent);
+      color: white;
+    }
+    
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.8s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full w-full overflow-auto">
+  <div class="w-full h-full" style="background: var(--color-light);"><!-- Navigation -->
+   <nav class="hero-gradient sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+     <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+       <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(255,255,255,0.2);"><span class="text-white font-bold text-xl" id="logo-text">TGRF</span>
+       </div><span class="text-white font-bold text-xl" id="nav-org-name">The Combined Research Foundation</span>
+      </div>
+      <div class="flex space-x-6 items-center"><a href="#home" class="nav-link">Home</a> <a href="#about" class="nav-link">About</a> <a href="#mission" class="nav-link">Mission</a> <a href="#programs" class="nav-link">Programs</a> <a href="#contact" class="nav-link">Contact</a> <a href="#donate" class="btn-primary" style="padding: 8px 24px;">Donate!</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="home" class="hero-gradient py-24">
+    <div class="max-w-7xl mx-auto px-6 text-center fade-in">
+     <h1 class="text-5xl font-bold text-white mb-6" id="hero-title">The Combined Research Foundation</h1>
+     <p class="text-2xl text-white opacity-90 mb-8" id="hero-tagline">Empowering Healthcare Excellence Through Innovation</p>
+     <div class="flex justify-center space-x-4"><a href="#about" class="btn-primary" style="background: white; color: var(--color-primary); border-color: white;">Learn More</a> <a href="#donate" class="btn-secondary" style="color: white; border-color: white;">Support Our Mission</a>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+     <h2 class="text-4xl font-bold text-center mb-12 text-gradient" id="about-section-title">About</h2>
+     <div class="section-card p-8 mb-8">
+      <p class="text-lg mb-6">The Combined Research Foundation is a nonprofit organization that was founded in Michigan, USA.</p>
+      <h3 class="text-2xl font-bold mb-4" style="color: var(--color-primary);">Background</h3>
+      <p class="text-lg mb-6">The global population is undergoing a significant demographic shift. The number of older adults is rapidly increasing, accompanied by a rising prevalence of chronic conditions and mental health disorders. This demographic transformation poses substantial challenges to healthcare systems worldwide.</p>
+      <p class="text-lg mb-6">Simultaneously, the complexity of patient care has escalated due to the increasing incidence of multimorbidity, where individuals manage multiple chronic conditions concurrently. This convergence of factors necessitates innovative and comprehensive approaches to healthcare delivery to address the evolving needs of this population.</p>
+      <p class="text-lg mb-6">As a pioneering force in healthcare education, we aim to cultivate the brightest talents and minds for the future. Our organization, nestled in the heart of Michigan, is dedicated to shaping a new era of medical excellence and compassion.</p>
+      <p class="text-lg font-semibold" style="color: var(--color-accent);">Join us on this transformative journey towards a healthier tomorrow. Let your passion and dedication merge with our vision, creating a synergy that propels healthcare forward.</p>
+     </div>
+    </div>
+   </section><!-- Mission & Vision -->
+   <section id="mission" class="py-20" style="background: white;">
+    <div class="max-w-7xl mx-auto px-6">
+     <div class="grid md:grid-cols-2 gap-8">
+      <div class="section-card p-8">
+       <h2 class="text-3xl font-bold mb-6 text-gradient" id="mission-section-title">Mission</h2>
+       <p class="text-lg">To empower the next generation of healthcare professionals in both clinical and research areas, and to excel in the U.S. healthcare system using both transformation and telehealth.</p>
+      </div>
+      <div class="section-card p-8">
+       <h2 class="text-3xl font-bold mb-6 text-gradient" id="vision-section-title">Vision</h2>
+       <p class="text-lg">To enhance the next generation of healthcare professionals by investing in innovative programs that address critical healthcare needs. We envision a future where recent graduates excel in their careers and contribute significantly to improving the health and well-being of our population, especially in the areas of geriatrics, mental health, and dental care.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Supported Programs -->
+   <section id="programs" class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+     <h2 class="text-4xl font-bold text-center mb-12 text-gradient" id="programs-section-title">Supported Programs</h2>
+     <div class="section-card p-8">
+      <p class="text-lg mb-6">The CRF is supporting the following program(s):</p>
+      <div class="border-l-4 pl-6 py-4" style="border-color: var(--color-accent); background: rgba(74, 144, 184, 0.05);">
+       <h3 class="text-2xl font-bold mb-3" style="color: var(--color-primary);" id="program-name-display">The Tele-Geriatric Research Fellowship Program</h3><a href="http://telegeriatricresearchfellowship.us" target="_blank" rel="noopener noreferrer" class="btn-secondary">More Info</a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact -->
+   <section id="contact" class="py-20" style="background: white;">
+    <div class="max-w-7xl mx-auto px-6">
+     <h2 class="text-4xl font-bold text-center mb-12 text-gradient" id="contact-section-title">Contact Us</h2>
+     <div class="section-card p-8">
+      <div class="grid md:grid-cols-2 gap-8">
+       <div>
+        <h3 class="text-xl font-bold mb-4" style="color: var(--color-primary);">Address</h3>
+        <p class="text-lg mb-6" id="contact-address">4129 Okemos Rd, Okemos, MI 48864</p>
+        <h3 class="text-xl font-bold mb-4" style="color: var(--color-primary);">Founders</h3>
+        <p class="text-lg mb-2">Dr. Nadir Abdelrahman</p>
+        <p class="text-lg mb-6">Ahmed D. Abdalrhim, M.D</p>
+        <h3 class="text-xl font-bold mb-4" style="color: var(--color-primary);">Co-Founders</h3>
+        <p class="text-lg mb-6">Dr. Srinivasa Madireddy and Creg McNeil</p>
+       </div>
+       <div>
+        <h3 class="text-xl font-bold mb-4" style="color: var(--color-primary);">Get In Touch</h3>
+        <p class="text-lg mb-2"><strong>Fax:</strong> <span id="contact-fax">888.225.7595</span></p>
+        <p class="text-lg mb-2"><strong>Email:</strong> <a href="mailto:nadir@telegeriatricresearchfellowship.us" style="color: var(--color-accent);" id="contact-email-link">nadir@telegeriatricresearchfellowship.us</a></p>
+        <p class="text-lg mb-6"><strong>Website:</strong> <a href="http://telegeriatricresearchfellowship.us" target="_blank" rel="noopener noreferrer" style="color: var(--color-accent);" id="contact-website-link">telegeriatricresearchfellowship.us</a></p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Donate Section -->
+   <section id="donate" class="py-20 hero-gradient">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+     <h2 class="text-4xl font-bold text-white mb-8">Support Our Mission</h2>
+     <p class="text-xl text-white mb-8">A favorable determination letter is issued by the IRS that this organization meets the requirements for tax-exempt status under the Code section the organization applied.</p>
+     <div class="bg-white rounded-lg p-8 mb-8">
+      <p class="text-lg mb-4" style="color: var(--color-primary);">📄 <strong>Determination Letter from IRS 2024</strong></p>
+      <p class="text-lg" style="color: var(--color-primary);">📜 <strong>501(c)(3) Certificate Available</strong><a href="https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/RMfk9RU4GNIhMY4gBYRg/pub/7mBSfljjQKVRhcK252WO.PDF"> Link. </a></p>
+     </div><a href="https://www.zeffy.com/en-US/donation-form/donate-to-empower-new-researchers" class="btn-primary" style="background: white; color: var(--color-primary); border-color: white; font-size: 1.25rem; padding: 16px 48px;">Donate Now</a>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12" style="background: var(--color-primary);">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+     <p class="text-white mb-4">Copyright © 2024 The Combined Research Foundation. A 501(c)(3) registered non-profit organization.</p>
+     <p class="text-white text-sm opacity-80">All Rights Reserved. CRF is not a medical company. It does not offer medical advice, medical opinions, or any medical activity which would constitute the unauthorized practice of medicine.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      organization_name: "The Combined Research Foundation",
+      tagline: "Empowering Healthcare Excellence Through Innovation",
+      about_title: "About",
+      mission_title: "Mission",
+      vision_title: "Vision",
+      programs_title: "Supported Programs",
+      program_name: "The Tele-Geriatric Research Fellowship Program",
+      contact_title: "Contact Us",
+      address: "4129 Okemos Rd, Ste #6, Okemos, MI 48864",
+      email: "nadir@telegeriatricresearchfellowship.us",
+      fax: "888.225.7595",
+      website_url: "http://crfoundation.us/"
+    };
+
+    async function onConfigChange(config) {
+      const orgName = config.organization_name || defaultConfig.organization_name;
+      const tagline = config.tagline || defaultConfig.tagline;
+      const aboutTitle = config.about_title || defaultConfig.about_title;
+      const missionTitle = config.mission_title || defaultConfig.mission_title;
+      const visionTitle = config.vision_title || defaultConfig.vision_title;
+      const programsTitle = config.programs_title || defaultConfig.programs_title;
+      const programName = config.program_name || defaultConfig.program_name;
+      const contactTitle = config.contact_title || defaultConfig.contact_title;
+      const address = config.address || defaultConfig.address;
+      const email = config.email || defaultConfig.email;
+      const fax = config.fax || defaultConfig.fax;
+      const websiteUrl = config.website_url || defaultConfig.website_url;
+
+      document.getElementById('nav-org-name').textContent = orgName;
+      document.getElementById('hero-title').textContent = orgName;
+      document.getElementById('hero-tagline').textContent = tagline;
+      document.getElementById('about-section-title').textContent = aboutTitle;
+      document.getElementById('mission-section-title').textContent = missionTitle;
+      document.getElementById('vision-section-title').textContent = visionTitle;
+      document.getElementById('programs-section-title').textContent = programsTitle;
+      document.getElementById('program-name-display').textContent = programName;
+      document.getElementById('contact-section-title').textContent = contactTitle;
+      document.getElementById('contact-address').textContent = address;
+      document.getElementById('contact-email-link').textContent = email;
+      document.getElementById('contact-email-link').href = `mailto:${email}`;
+      document.getElementById('contact-fax').textContent = fax;
+      document.getElementById('contact-website-link').textContent = websiteUrl.replace('http://', '').replace('https://', '');
+      document.getElementById('contact-website-link').href = websiteUrl;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["organization_name", config.organization_name || defaultConfig.organization_name],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["mission_title", config.mission_title || defaultConfig.mission_title],
+        ["vision_title", config.vision_title || defaultConfig.vision_title],
+        ["programs_title", config.programs_title || defaultConfig.programs_title],
+        ["program_name", config.program_name || defaultConfig.program_name],
+        ["contact_title", config.contact_title || defaultConfig.contact_title],
+        ["address", config.address || defaultConfig.address],
+        ["email", config.email || defaultConfig.email],
+        ["fax", config.fax || defaultConfig.fax],
+        ["website_url", config.website_url || defaultConfig.website_url]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6444fc16fe53a7',t:'MTc2OTgxMDcxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
