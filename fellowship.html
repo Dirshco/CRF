@@ -96,32 +96,80 @@
         <div class="form-card" id="apply-form">
             <h2>Request Fellowship Information Packet</h2>
             <p>Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
-            
-            <form action="#" method="POST" onsubmit="alert('Thank you! Your conversion has been tracked, and your information packet is downloading.'); return false;">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="status">Current Professional Status</label>
-                    <select id="status" name="status" required>
-                        <option value="">-- Select Status --</option>
-                        <option value="img">International Medical Graduate (IMG)</option>
-                        <option value="usmg">US Medical Graduate</option>
-                        <option value="resident">Resident / Fellow</option>
-                        <option value="other">Other Healthcare Professional</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="interest">Primary Research Interest</label>
-                    <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention, Meta-analysis..."></textarea>
-                </div>
-                <button type="submit" class="btn">Download Curriculum Packet</button>
-            </form>
+            <div class="form-card" id="apply-form">
+    <h2>Request Fellowship Information Packet</h2>
+    <p>Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
+    
+    <!-- Unified Dynamic Processing Form -->
+    <form id="fellowshipForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
+        </div>
+        <div class="form-group">
+            <label for="status">Current Professional Status</label>
+            <select id="status" name="status" required>
+                <option value="">-- Select Status --</option>
+                <option value="img">International Medical Graduate (IMG)</option>
+                <option value="usmg">US Medical Graduate</option>
+                <option value="resident">Dental Graduate</option>
+                <option value="resident">Nursing Graduate</option>
+                <option value="resident">Lab Tech Graduate</option>
+                <option value="resident">Therapy Graduate</option>
+                <option value="other">Other Healthcare Professional</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interest">Primary Research Interest</label>
+            <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention, Meta-analysis..."></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn">Download Curriculum Packet</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('fellowshipForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop the page from reloading out from under the user
+    
+    const submitButton = document.getElementById('submitBtn');
+    submitButton.innerText = "Processing...";
+    submitButton.disabled = true;
+
+    // YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
+    const scriptURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE';
+    
+    // Automatically bundle all form inputs into a data payload
+    const formData = new FormData(this);
+
+    // Asynchronously send data to Google Sheets
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData
+    })
+    .then(response => {
+        // Handle conversion analytics triggers and user presentation
+        alert("Thank you! Your conversion has been tracked, and your information packet is downloading.");
+        
+        // Optional: Trigger your actual physical file download link here
+        // window.location.href = 'https://yourdomain.com/docs/packet.pdf';
+        
+        // Reset form UI status
+        document.getElementById('fellowshipForm').reset();
+        submitButton.innerText = "Download Curriculum Packet";
+        submitButton.disabled = false;
+    })
+    .catch(error => {
+        console.error('Error submitting data:', error);
+        alert("An issue occurred. Please check your connection or contact our administrator.");
+        submitButton.innerText = "Download Curriculum Packet";
+        submitButton.disabled = false;
+    });
+});
+</script>
         </div>
     </div>
 
