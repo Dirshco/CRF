@@ -121,34 +121,36 @@
             <h2 class="text-2xl font-bold text-slate-800 mb-2">Request Fellowship Information Packet</h2>
             <p class="text-slate-500 text-sm mb-6">Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
             
-            <form id="fellowshipForm" class="space-y-4">
-                <div>
-                    <label for="name" class="block font-semibold text-slate-700 mb-1">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Dr. John Doe" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
-                </div>
-                <div>
-                    <label for="email" class="block font-semibold text-slate-700 mb-1">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="johndoe@example.com" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
-                </div>
-                <div>
-                    <label for="status" class="block font-semibold text-slate-700 mb-1">Current Professional Status</label>
-                    <select id="status" name="status" required class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white">
-                        <option value="">-- Select Status --</option>
-                        <option value="img">International Medical Graduate (IMG)</option>
-                        <option value="usmg">US Medical Graduate</option>
-                        <option value="resident">Resident / Fellow</option>
-                        <option value="other">Other Healthcare Professional</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="interest" class="block font-semibold text-slate-700 mb-1">Primary Research Interest</label>
-                    <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention..." class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
-                </div>
-                <button type="submit" id="submitBtn" class="w-full hero-gradient text-white py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition">
-                    Download Curriculum Packet
-                </button>
-            </form>
+<!-- Unified Dynamic Processing Form -->
+    <form id="fellowshipForm">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
         </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
+        </div>
+        <div class="form-group">
+            <label for="status">Current Professional Status</label>
+            <select id="status" name="status" required>
+                <option value="">-- Select Status --</option>
+                <option value="img">International Medical Graduate (IMG)</option>
+                <option value="usmg">US Medical Graduate</option>
+                <option value="resident">Dental Graduate</option>
+                <option value="resident">Nursing Graduate</option>
+                <option value="resident">Lab Tech Graduate</option>
+                <option value="resident">Therapy Graduate</option>
+                <option value="other">Other Healthcare Professional</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="interest">Primary Research Interest</label>
+            <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention, Meta-analysis..."></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn">Download Curriculum Packet</button>
+    </form>
+                  </div>
       </div>
     </main>
 
@@ -169,7 +171,7 @@
       submitButton.disabled = true;
 
       // Update with your custom deployed web app sheets URL
-      const scriptURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxE5HLWxO4gxGXzcHCKDWSl1FxAnar5zc99fXBBXILvjJcXl6inRb49nT1rrVyvBYjo/exec';
       const formData = new FormData(this);
 
       fetch(scriptURL, { method: 'POST', body: formData })
