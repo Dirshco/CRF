@@ -1,127 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-full">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telehealth & Digital Innovation Research | CRF</title>
-    <meta name="description" content="Explore advanced telehealth research and digital health systems at The Combined Research Foundation. Focus areas: Ambient AI scribes, geriatric monitoring, and chronic disease tracking.">
-    <style>
-        :root {
-            --primary: #0f766e;
-            --primary-light: #f0fdfa;
-            --accent: #1e3a8a;
-            --text: #1f2937;
-            --text-light: #4b5563;
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --border: #e2e8f0;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background-color: var(--bg); line-height: 1.6; font-size: 11pt; }
-        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 20px; }
-        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo a { font-weight: bold; color: var(--primary); text-decoration: none; font-size: 14pt; }
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: var(--text-light); font-weight: 500; }
-        nav a:hover, nav a.active { color: var(--primary); }
-        
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: var(--primary); font-size: 22pt; margin-bottom: 10px; }
-        h2 { color: var(--accent); font-size: 15pt; margin-top: 30px; margin-bottom: 15px; border-left: 4px solid var(--primary); padding-left: 10px; }
-        p { margin-bottom: 15px; color: var(--text-light); text-align: justify; }
-        
-        .highlight-box { background-color: var(--primary-light); border-left: 4px solid var(--primary); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
-        
-        .study-grid { display: block; margin-top: 25px; }
-        .study-card { background: var(--white); border: 1px solid var(--border); padding: 20px; border-radius: 6px; margin-bottom: 20px; }
-        .study-card h3 { color: var(--primary); font-size: 12pt; margin-bottom: 5px; }
-        
-        .form-card { background: var(--white); border: 1px solid var(--border); padding: 30px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 5px; color: var(--text); }
-        input[type="text"], input[type="email"], select { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 11pt; }
-        
-        .btn { display: inline-block; background-color: var(--primary); color: var(--white); padding: 12px 24px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; font-size: 11pt; }
-        .btn:hover { background-color: #0d5e58; }
-        
-        footer { background-color: var(--white); border-top: 1px solid var(--border); padding: 30px; text-align: center; color: var(--text-light); margin-top: 60px; font-size: 10pt; }
-    </style>
-    <!-- Google Analytics Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN6J6BTS');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Telehealth & Digital Innovation Research | CRF</title>
+  <meta name="description" content="Explore advanced telehealth research at The Combined Research Foundation. Focusing on Ambient AI scribes and geriatric monitoring infrastructures.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN6J6BTS"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WN6J6BTS');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
+    
+    :root {
+      --color-primary: #1e3a5f;
+      --color-secondary: #2c5f8d;
+      --color-accent: #4a90b8;
+      --color-light: #f8fafc;
+      --color-text: #1e293b;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
-<body>
-
-    <header>
-        <div class="nav-container">
-            <div class="logo"><a href="index.html">CRF</a></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="fellowship.html">Fellowships</a></li>
-                    <li><a href="telehealth.html" class="active">Telehealth</a></li>
-                    <li><a href="donate.html">Donate</a></li>
-                </ul>
-            </nav>
+<body class="h-full w-full bg-slate-50 overflow-auto">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN6J6BTS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="w-full min-h-full flex flex-col justify-between">
+    
+    <nav class="hero-gradient sticky top-0 z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white/20">
+              <span class="text-white font-bold text-xl">CRF</span>
+            </div>
+            <span class="text-white font-bold text-xl hidden sm:inline">The Combined Research Foundation</span>
+          </div>
+          <div class="flex space-x-4 items-center">
+            <a href="index.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Home</a> 
+            <a href="fellowship.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Fellowships</a>
+            <a href="telehealth.html" class="bg-white text-slate-900 px-4 py-2 rounded-md text-sm font-bold shadow-md">Telehealth</a>
+            <a href="donate.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Donate</a>
+          </div>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <div class="container">
-        <h1>Telehealth Research & Healthcare Transformation</h1>
-        <p>The Combined Research Foundation is dedicated to accelerating the integration of digital infrastructure within clinical practice environments. Our active trials analyze how asynchronous technologies and ambient metrics optimize patient outcomes and reduce clinical burnout.</p>
+    <main class="flex-grow max-w-4xl w-full mx-auto px-6 py-12">
+      <div class="max-w-3xl mx-auto mb-10">
+        <h1 class="text-4xl font-bold mb-4 text-gradient">Telehealth Research & Healthcare Transformation</h1>
+        <p class="text-slate-600 text-lg mb-6">
+          The Combined Research Foundation is dedicated to accelerating the integration of digital infrastructure within clinical practice environments. Our active trials analyze how asynchronous technologies and ambient metrics optimize patient outcomes and reduce clinical burnout.
+        </p>
         
-        <div class="highlight-box">
-            <p>Through our dedicated <strong>telehealth initiatives</strong>, we analyze data trends from community care centers, focusing on long-term outcomes in chronic symptom monitoring and senior cognitive care support models.</p>
+        <div class="bg-teal-50 border-l-4 border-teal-600 p-6 rounded-r-xl mb-8">
+            <p class="text-slate-700 font-medium">
+              Through our dedicated <strong>telehealth initiatives</strong>, we analyze data trends from community care centers, focusing on long-term outcomes in chronic symptom monitoring and senior cognitive care support models.
+            </p>
         </div>
 
-        <h2>Active Research Frameworks</h2>
-        <div class="study-grid">
-            <div class="study-card">
-                <h3>1. Ambient Clinical Scribe Optimization</h3>
-                <p>Investigating the accuracy, linguistic mapping, and template synthesis of AI recorders capturing continuous patient-physician interactions in sub-acute and long-term care environments.</p>
+        <h2 class="text-2xl font-bold text-slate-800 mb-6 mt-8 border-b pb-2">Active Research Frameworks</h2>
+        
+        <div class="grid gap-6 md:grid-cols-1 mb-12">
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">1. Ambient Clinical Scribe Optimization</h3>
+                <p class="text-slate-600">Investigating the accuracy, linguistic mapping, and template synthesis of AI recorders capturing continuous patient-physician interactions in sub-acute and long-term care environments.</p>
             </div>
-            <div class="study-card">
-                <h3>2. Mobile Nociplastic Pain Tracking</h3>
-                <p>Evaluating mobile interface adoption among elderly patient populations tracking localized and centralized pain markers, integrating full-stack UI optimizations for older users.</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">2. Mobile Nociplastic Pain Tracking</h3>
+                <p class="text-slate-600">Evaluating mobile interface adoption among elderly patient populations tracking localized and centralized pain markers, testing layout accessibility settings for older users.</p>
             </div>
-            <div class="study-card">
-                <h3>3. Continuous Glycemic Architecture</h3>
-                <p>Analyzing systemic integration protocols for continuous data telemetry within post-acute nursing facilities to safely minimize acute glycemic variance events.</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+                <h3 class="text-xl font-bold text-slate-800 mb-2">3. Continuous Glycemic Architecture</h3>
+                <p class="text-slate-600">Analyzing systemic integration protocols for continuous data telemetry within post-acute nursing facilities to safely minimize acute glycemic variance events.</p>
             </div>
         </div>
 
-        <!-- Lead Magnet Form -->
-        <div class="form-card">
-            <h2>Access White Papers & Publications</h2>
-            <p>Join our professional network to receive quarterly data abstracts, open-source python scraping tools, and preprints of clinical studies conducted by our team.</p>
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-xl max-w-xl mx-auto">
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">Access White Papers & Publications</h2>
+            <p class="text-slate-500 text-sm mb-6">Join our professional network to receive quarterly data abstracts, open-source script configurations, and preprints of studies conducted by our clinical teams.</p>
             
-            <form action="#" method="POST" onsubmit="alert('Subscription verified. Welcome to our research network.'); return false;">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Dr. Jane Smith">
+            <form id="telehealthForm" class="space-y-4">
+                <div>
+                    <label for="th-name" class="block font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="th-name" name="name" required placeholder="Dr. Jane Smith" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
                 </div>
-                <div class="form-group">
-                    <label for="email">Professional Email</label>
-                    <input type="email" id="email" name="email" required placeholder="janesmith@clinical.org">
+                <div>
+                    <label for="th-email" class="block font-semibold text-slate-700 mb-1">Professional Email</label>
+                    <input type="email" id="th-email" name="email" required placeholder="janesmith@clinical.org" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
                 </div>
-                <div class="form-group">
-                    <label for="org">Affiliation / Organization</label>
-                    <input type="text" id="org" name="org" required placeholder="Hospital, Practice, or University">
+                <div>
+                    <label for="th-org" class="block font-semibold text-slate-700 mb-1">Affiliation / Organization</label>
+                    <input type="text" id="th-org" name="org" required placeholder="Hospital, Practice, or Corporate Entity" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
                 </div>
-                <button type="submit" class="btn">Subscribe to Research Briefs</button>
+                <button type="submit" id="thSubmitBtn" class="w-full hero-gradient text-white py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition">
+                    Subscribe to Research Briefs
+                </button>
             </form>
         </div>
-    </div>
+      </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 The Combined Research Foundation. All Rights Reserved. 501(c)(3) Nonprofit Organization.</p>
+    <footer class="py-8 bg-slate-900 text-slate-400 text-center border-t border-slate-800 text-sm">
+      <div class="max-w-7xl mx-auto px-6 space-y-2">
+        <p class="text-white">Copyright © 2020-2026 The Combined Research Foundation. A 501(c)(3) registered non-profit organization.</p> 
         <p>4129 Okemos Rd, Okemos, MI 48864</p>
+      </div>
     </footer>
+  </div>
 
+  <script>
+  document.getElementById('telehealthForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('thSubmitBtn');
+      submitBtn.innerText = "Connecting to abstract network...";
+      submitBtn.disabled = true;
+
+      // Update with your custom spreadsheet endpoint handling link
+      const sheetAppURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE'; 
+      const payload = new FormData(this);
+
+      fetch(sheetAppURL, { method: 'POST', body: payload })
+      .then(() => {
+          alert("Subscription verified. Welcome to our research network updates list.");
+          document.getElementById('telehealthForm').reset();
+      })
+      .catch(err => console.error("Sub-network route exception processed:", err))
+      .finally(() => {
+          submitBtn.innerText = "Subscribe to Research Briefs";
+          submitBtn.disabled = false;
+      });
+  });
+  </script>
 </body>
 </html>
