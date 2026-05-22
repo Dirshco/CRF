@@ -76,40 +76,87 @@
         
         <p>By connecting metrics directly with actionable funding goals, we ensure every single dollar is optimized to support academic resources for newly trained medical practitioners.</p>
 
-        <!-- Hard Conversion Area configured for Google Ads Mapping -->
-        <div class="donation-box">
-            <form action="#" method="POST" onsubmit="alert('Conversion Event Fired! Thank you for your support.'); return false;">
-                
-                <label style="margin-bottom: 10px;">Select Contribution Level</label>
-                <div class="amount-buttons">
-                    <button type="button" class="amt-btn" onclick="selectAmt(this, 50)">$50</button>
-                    <button type="button" class="amt-btn selected" onclick="selectAmt(this, 100)">$100</button>
-                    <button type="button" class="amt-btn" onclick="selectAmt(this, 250)">$250</button>
-                    <button type="button" class="amt-btn" onclick="selectAmt(this, 500)">$500</button>
-                </div>
-
-                <div class="form-group">
-                    <label for="custom-amount">Or Enter Custom Amount ($)</label>
-                    <input type="number" id="custom-amount" name="amount" value="100" min="5">
-                </div>
-
-                <div class="form-group">
-                    <label for="donor-name">Donor Name</label>
-                    <input type="text" id="donor-name" required placeholder="Individual or Corporate Entity Name">
-                </div>
-
-                <div class="form-group">
-                    <label for="donor-email">Email Address</label>
-                    <input type="email" id="donor-email" required placeholder="billing@example.com">
-                </div>
-
-                <button type="submit" class="btn-submit">Process Secure Donation</button>
-            </form>
-            
-            <div class="tax-disclaimer">
-                The Combined Research Foundation is an independent, IRS-recognized 501(c)(3) tax-exempt charitable organization. Your contribution is fully deductible to the extent permitted by federal law.
-            </div>
+<!-- Hard Conversion Area configured for Google Ads and Zeffy Mapping -->
+<div class="bg-white border border-slate-200 rounded-lg p-8 shadow-sm my-8">
+    <form id="zeffyTrackingForm">
+        
+        <label class="block font-semibold mb-3">Select Contribution Level</label>
+        <div class="flex flex-wrap gap-4 mb-6">
+            <button type="button" class="amt-btn flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-slate-200 rounded-md font-bold cursor-pointer text-slate-600 bg-white hover:border-sky-500 hover:text-sky-600 transition" onclick="selectAmt(this, 50)">$50</button>
+            <button type="button" class="amt-btn selected flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-sky-500 bg-sky-50 text-sky-600 rounded-md font-bold cursor-pointer transition" onclick="selectAmt(this, 100)">$100</button>
+            <button type="button" class="amt-btn flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-slate-200 rounded-md font-bold cursor-pointer text-slate-600 bg-white hover:border-sky-500 hover:text-sky-600 transition" onclick="selectAmt(this, 250)">$250</button>
+            <button type="button" class="amt-btn flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-slate-200 rounded-md font-bold cursor-pointer text-slate-600 bg-white hover:border-sky-500 hover:text-sky-600 transition" onclick="selectAmt(this, 500)">$500</button>
         </div>
+
+        <div class="mb-5">
+            <label for="custom-amount" class="block font-semibold mb-1">Or Enter Custom Amount ($)</label>
+            <input type="number" id="custom-amount" name="amount" value="100" min="5" class="w-full p-2 border border-slate-200 rounded">
+        </div>
+
+        <div class="mb-5">
+            <label for="donor-name" class="block font-semibold mb-1">Donor Name</label>
+            <input type="text" id="donor-name" name="name" required placeholder="Individual or Corporate Entity Name" class="w-full p-2 border border-slate-200 rounded">
+        </div>
+
+        <div class="mb-5">
+            <label for="donor-email" class="block font-semibold mb-1">Email Address</label>
+            <input type="email" id="donor-email" name="email" required placeholder="billing@example.com" class="w-full p-2 border border-slate-200 rounded">
+        </div>
+
+        <button type="submit" id="donateSubmitBtn" class="w-full bg-amber-700 text-white p-4 rounded-md font-bold text-lg uppercase tracking-wide hover:bg-amber-800 transition">
+            Process Secure Donation via Zeffy
+        </button>
+    </form>
+    
+    <div class="text-xs text-slate-500 text-center mt-5 bg-slate-50 p-3 rounded">
+        The Combined Research Foundation is an independent, IRS-recognized 501(c)(3) tax-exempt charitable organization. Your contribution is fully deductible to the extent permitted by federal law.
+    </div>
+</div>
+
+<script>
+function selectAmt(btn, value) {
+    document.querySelectorAll('.amt-btn').forEach(b => {
+        b.className = "amt-btn flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-slate-200 rounded-md font-bold cursor-pointer text-slate-600 bg-white hover:border-sky-500 hover:text-sky-600 transition";
+    });
+    btn.className = "amt-btn selected flex-1 min-w-[80px] padding-4 py-3 text-center border-2 border-sky-500 bg-sky-50 text-sky-600 rounded-md font-bold cursor-pointer transition";
+    document.getElementById('custom-amount').value = value;
+}
+
+document.getElementById('zeffyTrackingForm').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    
+    const submitBtn = document.getElementById('donateSubmitBtn');
+    submitBtn.innerText = "Tracking secure connection...";
+    submitBtn.disabled = true;
+
+    const donationAmount = document.getElementById('custom-amount').value;
+    const donorEmail = document.getElementById('donor-email').value;
+
+    // Post to Google Sheets Apps Script Endpoint
+    const sheetAppURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE'; 
+    const payload = new FormData(this);
+
+    fetch(sheetAppURL, { method: 'POST', body: payload })
+    .then(() => {
+        if (typeof gtag === 'function') {
+            gtag('event', 'purchase', {
+                'transaction_id': 'CRF_' + new Date().getTime(),
+                'value': parseFloat(donationAmount),
+                'currency': 'USD',
+                'items': [{ 'item_name': 'Foundation General Fund Donation' }]
+            });
+        }
+    })
+    .catch(err => console.error("Sheets tracking bypassed, moving to gateway:", err))
+    .finally(() => {
+        const baseZeffyUrl = 'https://www.zeffy.com/en-US/donation-form/donate-to-empower-new-researchers';
+        const finalCheckoutUrl = `${baseZeffyUrl}?amount=${donationAmount}&email=${encodeURIComponent(donorEmail)}`;
+        
+        alert("Thank you! Your conversion has been tracked. Connecting to Zeffy's secure transaction network...");
+        window.location.href = finalCheckoutUrl;
+    });
+});
+</script>
     </div>
 
     <script>
