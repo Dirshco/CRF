@@ -1,182 +1,188 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="h-full">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinical Research Fellowship Program | CRF</title>
-    <meta name="description" content="Apply for the Independent Tele-Geriatric Research Fellowship at The Combined Research Foundation. Designed for medical graduates to master clinical informatics, health tech, and data science.">
-    <style>
-        :root {
-            --primary: #1e3a8a;
-            --primary-light: #eff6ff;
-            --accent: #0f766e;
-            --text: #1f2937;
-            --text-light: #4b5563;
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --border: #e2e8f0;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); background-color: var(--bg); line-height: 1.6; font-size: 11pt; }
-        header { background-color: var(--white); border-bottom: 1px solid var(--border); padding: 20px; }
-        .nav-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo a { font-weight: bold; color: var(--primary); text-decoration: none; font-size: 14pt; }
-        nav ul { list-style: none; display: flex; gap: 20px; }
-        nav a { text-decoration: none; color: var(--text-light); font-weight: 500; }
-        nav a:hover, nav a.active { color: var(--primary); }
-        
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        h1 { color: var(--primary); font-size: 22pt; margin-bottom: 10px; }
-        h2 { color: var(--accent); font-size: 15pt; margin-top: 30px; margin-bottom: 15px; border-left: 4px solid var(--accent); padding-left: 10px; }
-        p { margin-bottom: 15px; color: var(--text-light); text-align: justify; }
-        
-        .highlight-box { background-color: var(--primary-light); border-left: 4px solid var(--primary); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
-        .highlight-box h3 { color: var(--primary); margin-bottom: 8px; font-size: 12pt; }
-        
-        ul.spec-list { margin-bottom: 20px; padding-left: 20px; }
-        ul.spec-list li { margin-bottom: 8px; color: var(--text-light); }
-        
-        .form-card { background: var(--white); border: 1px solid var(--border); padding: 30px; border-radius: 8px; margin-top: 40px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-weight: 600; margin-bottom: 5px; color: var(--text); }
-        input[type="text"], input[type="email"], select, textarea { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px; font-size: 11pt; }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); }
-        
-        .btn { display: inline-block; background-color: var(--primary); color: var(--white); padding: 12px 24px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; font-size: 11pt; }
-        .btn:hover { background-color: #1d4ed8; }
-        
-        footer { background-color: var(--white); border-top: 1px solid var(--border); padding: 30px; text-align: center; color: var(--text-light); margin-top: 60px; font-size: 10pt; }
-    </style>
-    <!-- Google Analytics Tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WN6J6BTS');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Clinical Research Fellowship Program | CRF</title>
+  <meta name="description" content="Apply for the Independent Tele-Geriatric Research Fellowship at The Combined Research Foundation. Designed for medical graduates to master clinical informatics and data science.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN6J6BTS"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WN6J6BTS');
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
+    
+    :root {
+      --color-primary: #1e3a5f;
+      --color-secondary: #2c5f8d;
+      --color-accent: #4a90b8;
+      --color-light: #f8fafc;
+      --color-text: #1e293b;
+    }
+    
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+    }
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
-<body>
-
-    <header>
-        <div class="nav-container">
-            <div class="logo"><a href="index.html">CRF</a></div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="fellowship.html" class="active">Fellowships</a></li>
-                    <li><a href="telehealth.html">Telehealth</a></li>
-                    <li><a href="donate.html">Donate</a></li>
-                </ul>
-            </nav>
+<body class="h-full w-full bg-slate-50 overflow-auto">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN6J6BTS"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <div class="w-full min-h-full flex flex-col justify-between">
+    
+    <nav class="hero-gradient sticky top-0 z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center bg-white/20">
+              <span class="text-white font-bold text-xl">CRF</span>
+            </div>
+            <span class="text-white font-bold text-xl hidden sm:inline">The Combined Research Foundation</span>
+          </div>
+          <div class="flex space-x-4 items-center">
+            <a href="index.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Home</a> 
+            <a href="fellowship.html" class="bg-white text-slate-900 px-4 py-2 rounded-md text-sm font-bold shadow-md">Fellowships</a>
+            <a href="telehealth.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Telehealth</a>
+            <a href="donate.html" class="text-white no-underline hover:text-slate-200 text-sm font-medium">Donate</a>
+          </div>
         </div>
-    </header>
+      </div>
+    </nav>
 
-    <div class="container">
-        <h1>Independent Tele-Geriatric Research Fellowship</h1>
-        <p>The Combined Research Foundation (CRF) offers an elite, independent fellowship framework crafted for ambitious medical graduates and healthcare professionals. Our mission is to bridge the traditional clinical space with cutting-edge medical informatics, operational workflows, and healthcare data science systems.</p>
+    <main class="flex-grow max-w-4xl w-full mx-auto px-6 py-12">
+      <div class="max-w-3xl mx-auto mb-10">
+        <h1 class="text-4xl font-bold mb-4 text-gradient">Independent Tele-Geriatric Research Fellowship</h1>
+        <p class="text-slate-600 text-lg mb-6">
+          The Combined Research Foundation (CRF) offers an elite, independent fellowship framework crafted for ambitious medical graduates and healthcare professionals. Our mission is to bridge the traditional clinical space with cutting-edge medical informatics, operational workflows, and healthcare data science systems.
+        </p>
         
-        <div class="highlight-box">
-            <h3>Triad Relevancy Match</h3>
-            <p>If you are exploring competitive options for clinical training, our <strong>independent research fellowship</strong> provides unmatched mentorship under senior clinical faculty, offering full transition pathways into the United States healthcare ecosystem.</p>
+        <div class="bg-sky-50 border-l-4 border-sky-500 p-6 rounded-r-xl mb-8">
+            <p class="text-slate-700 font-medium">
+              If you are exploring competitive options for clinical training, our <strong>independent research fellowship</strong> provides unmatched mentorship under senior clinical faculty, offering full transition pathways into the United States healthcare ecosystem.
+            </p>
         </div>
 
-        <h2>Core Curriculum & Domains</h2>
-        <p>Fellows do not simply observe; they drive multi-platform digital research initiatives from concept to conference presentation. Training pathways include:</p>
-        <ul class="spec-list">
-            <li><strong>Clinical Informatics & Ambient AI:</strong> Developing and validating tools that synthesize ambient clinical encounters into structured electronic health records.</li>
-            <li><strong>Geriatric Digital Infrastructure:</strong> Deploying remote monitoring, fall prevention systems, and accessible user interfaces customized for senior populations.</li>
-            <li><strong>Biostatistics & Literature Meta-Analysis:</strong> Processing massive national clinical datasets (such as NIS) using rigorous Python and R workflows for systematic reviews.</li>
+        <h2 class="text-2xl font-bold text-slate-800 mb-4 mt-8 border-b pb-2">Core Curriculum & Research Domains</h2>
+        <p class="text-slate-600 mb-4">Fellows do not simply observe; they drive multi-platform digital research initiatives from concept to conference presentation. Training pathways include:</p>
+        
+        <ul class="space-y-4 mb-8">
+            <li class="flex items-start">
+              <span class="text-sky-500 mr-2 font-bold">✓</span>
+              <div>
+                <strong>Clinical Informatics & Ambient AI:</strong> Developing and validating tools that synthesize ambient clinical encounters into structured electronic health records.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-sky-500 mr-2 font-bold">✓</span>
+              <div>
+                <strong>Geriatric Digital Infrastructure:</strong> Deploying remote monitoring, fall prevention systems, and accessible user interfaces customized for senior populations.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-sky-500 mr-2 font-bold">✓</span>
+              <div>
+                <strong>Biostatistics & Literature Meta-Analysis:</strong> Processing massive national clinical datasets using rigorous Python and R workflows for systematic reviews.
+              </div>
+            </li>
         </ul>
 
-        <h2>Program Eligibility & Structure</h2>
-        <p>We welcome applications from medical school graduates (IMGs and USMGs) committed to leading the digital health revolution. This independent program operates outside university boundaries, allowing agile, rapid cycles of deployment and publication.</p>
-
-        <!-- Dynamic Lead Magnet / Conversion Form -->
-        <div class="form-card" id="apply-form">
-            <h2>Request Fellowship Information Packet</h2>
-            <p>Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
-            <div class="form-card" id="apply-form">
-    <h2>Request Fellowship Information Packet</h2>
-    <p>Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
-    
-    <!-- Unified Dynamic Processing Form -->
-    <form id="fellowshipForm">
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required placeholder="Dr. John Doe">
+        <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-xl max-w-xl mx-auto mt-12">
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">Request Fellowship Information Packet</h2>
+            <p class="text-slate-500 text-sm mb-6">Provide your details below to download the comprehensive curriculum guide and application deadlines for the upcoming cohort cycle.</p>
+            
+            <form id="fellowshipForm" class="space-y-4">
+                <div>
+                    <label for="name" class="block font-semibold text-slate-700 mb-1">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Dr. John Doe" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label for="email" class="block font-semibold text-slate-700 mb-1">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="johndoe@example.com" class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500">
+                </div>
+                <div>
+                    <label for="status" class="block font-semibold text-slate-700 mb-1">Current Professional Status</label>
+                    <select id="status" name="status" required class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 bg-white">
+                        <option value="">-- Select Status --</option>
+                        <option value="img">International Medical Graduate (IMG)</option>
+                        <option value="usmg">US Medical Graduate</option>
+                        <option value="resident">Resident / Fellow</option>
+                        <option value="other">Other Healthcare Professional</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="interest" class="block font-semibold text-slate-700 mb-1">Primary Research Interest</label>
+                    <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention..." class="w-full px-4 py-2 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full hero-gradient text-white py-3 rounded-xl font-bold shadow-md hover:opacity-90 transition">
+                    Download Curriculum Packet
+                </button>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required placeholder="johndoe@example.com">
-        </div>
-        <div class="form-group">
-            <label for="status">Current Professional Status</label>
-            <select id="status" name="status" required>
-                <option value="">-- Select Status --</option>
-                <option value="img">International Medical Graduate (IMG)</option>
-                <option value="usmg">US Medical Graduate</option>
-                <option value="resident">Dental Graduate</option>
-                <option value="resident">Nursing Graduate</option>
-                <option value="resident">Lab Tech Graduate</option>
-                <option value="resident">Therapy Graduate</option>
-                <option value="other">Other Healthcare Professional</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="interest">Primary Research Interest</label>
-            <textarea id="interest" name="interest" rows="3" placeholder="E.g., Ambient AI Scribes, Geriatric Fall Prevention, Meta-analysis..."></textarea>
-        </div>
-        <button type="submit" id="submitBtn" class="btn">Download Curriculum Packet</button>
-    </form>
-</div>
+      </div>
+    </main>
 
-<script>
-document.getElementById('fellowshipForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Stop the page from reloading out from under the user
-    
-    const submitButton = document.getElementById('submitBtn');
-    submitButton.innerText = "Processing...";
-    submitButton.disabled = true;
-
-    // YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
-    const scriptURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE';
-    
-    // Automatically bundle all form inputs into a data payload
-    const formData = new FormData(this);
-
-    // Asynchronously send data to Google Sheets
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: formData
-    })
-    .then(response => {
-        // Handle conversion analytics triggers and user presentation
-        alert("Thank you! Your conversion has been tracked, and your information packet is downloading.");
-        
-        // Optional: Trigger your actual physical file download link here
-        // window.location.href = 'https://yourdomain.com/docs/packet.pdf';
-        
-        // Reset form UI status
-        document.getElementById('fellowshipForm').reset();
-        submitButton.innerText = "Download Curriculum Packet";
-        submitButton.disabled = false;
-    })
-    .catch(error => {
-        console.error('Error submitting data:', error);
-        alert("An issue occurred. Please check your connection or contact our administrator.");
-        submitButton.innerText = "Download Curriculum Packet";
-        submitButton.disabled = false;
-    });
-});
-</script>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 The Combined Research Foundation. All Rights Reserved. 501(c)(3) Nonprofit Organization.</p>
+    <footer class="py-8 bg-slate-900 text-slate-400 text-center border-t border-slate-800 text-sm">
+      <div class="max-w-7xl mx-auto px-6 space-y-2">
+        <p class="text-white">Copyright © 2020-2026 The Combined Research Foundation. A 501(c)(3) registered non-profit organization.</p> 
         <p>4129 Okemos Rd, Okemos, MI 48864</p>
+      </div>
     </footer>
+  </div>
 
+  <script>
+  document.getElementById('fellowshipForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = document.getElementById('submitBtn');
+      submitButton.innerText = "Processing secure file generation...";
+      submitButton.disabled = true;
+
+      // Update with your custom deployed web app sheets URL
+      const scriptURL = 'PASTE_YOUR_DEPLOYED_WEB_APP_URL_HERE';
+      const formData = new FormData(this);
+
+      fetch(scriptURL, { method: 'POST', body: formData })
+      .then(response => {
+          alert("Thank you! Your conversion has been tracked, and your information packet is downloading.");
+          document.getElementById('fellowshipForm').reset();
+      })
+      .catch(error => console.error('Data log exception noted:', error))
+      .finally(() => {
+          submitButton.innerText = "Download Curriculum Packet";
+          submitButton.disabled = false;
+      });
+  });
+  </script>
 </body>
 </html>
