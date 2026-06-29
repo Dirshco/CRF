@@ -7,15 +7,20 @@
         /* Printable Page Setup */
         @page {
             size: letter;
-            margin: 1.25in;
+            /* Reduced bottom margin to give the fixed footer room to render without being cut off by printer hardware margins */
+            margin: 1.25in 1.25in 0.75in 1.25in; 
         }
+        
         body {
             font-family: 'Georgia', 'Times New Roman', serif;
             color: #2c3e50;
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            /* Add padding to the bottom so the letter content doesn't overlap the fixed footer */
+            padding-bottom: 1.5in; 
         }
+
         /* Header Configuration */
         header {
             display: flex;
@@ -37,23 +42,27 @@
         }
         .org-details {
             text-align: right;
+            flex: 1; /* Allows the text block to take up remaining space */
+            margin-left: 20px;
         }
         .org-title {
             font-family: 'Garamond', 'Georgia', serif;
-            font-size: 16pt;
+            font-size: 18pt; /* Slightly increased for better presence */
             font-weight: bold;
             color: #1E4620;
             margin: 0;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
         .org-sub {
             font-family: 'Arial', sans-serif;
-            font-size: 8.5pt;
+            font-size: 9pt;
             color: #7f8c8d;
             margin: 4px 0 0 0;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
+
         /* Letter Metadata & Body styling */
         .meta-date {
             font-family: 'Arial', sans-serif;
@@ -72,7 +81,7 @@
             text-align: justify;
         }
         .closing-block {
-            margin-top: 50px;
+            margin-top: 40px;
             font-family: 'Arial', sans-serif;
             font-size: 11pt;
         }
@@ -81,18 +90,30 @@
             border-top: 1px solid #bdc3c7;
             width: 200px;
         }
-        /* Fixed Footer Setup */
+
+        /* Fixed Footer Setup - Optimized for Print */
         footer {
             position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            bottom: 0.25in; /* Safely above the printer's physical non-printable edge */
+            left: 1.25in; /* Aligns perfectly with the page's left margin */
+            right: 1.25in; /* Aligns perfectly with the page's right margin */
             text-align: center;
             border-top: 1px solid #ecf0f1;
             padding-top: 10px;
             font-family: 'Arial', sans-serif;
             font-size: 8pt;
             color: #95a5a6;
+        }
+
+        /* Print-specific adjustments */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            header {
+                page-break-after: avoid;
+            }
         }
     </style>
 </head>
@@ -133,7 +154,7 @@
     <!-- Sign-off Block -->
     <div class="closing-block">
         Sincerely,<br><br>
-        <strong>Dr. Nadir Abdelrahman/strong><br>
+        <strong>Dr. Nadir Abdelrahman</strong><br>
         Director, Combined Research Foundation (CRF)
         <div class="signature-line"></div>
     </div>
